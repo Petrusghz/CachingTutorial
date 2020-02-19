@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewBag.Title = "ChangeMode";
+}
+
+@{
+    bool mode = ViewBag.Mode;
+    int dark = ViewBag.DarkCalls;
+    int? clear = ViewBag.ClearCalls;
+
+    if (mode == true)
+    {
+
+        Layout = "~/Views/Shared/_LayoutCustomDark.cshtml";
+        
+        ViewBag.DarkCalls = dark;
+        ViewBag.ClearCalls = clear;
+
+    }
+    else if (mode == false)
+    {
+
+        Layout = "~/Views/Shared/_LayoutCustomClear.cshtml";
+       
+        ViewBag.ClearCalls = clear;
+
+    }
+
+}
+
+<h4><b>Cambio de Modo: Oscuro/Claro</b></h4>
+<hr />
+<div class="mode">
+    <h4>Llamadas al modo oscuro: @ViewBag.DarkCalls</h4>
+    <h4>Llamadas al modo claro: @ViewBag.ClearCalls</h4>
+    <br /><h2><span class="badge badge-dark">Hora del Sistema: @ViewBag.Hora</span></h2>
+</div>
+<br />
+
+<span class="badge badge-warning">Durante 20 segundos el Caching estará activo: No podrá cambiar el modo</span>
+
+<div class="progress">
+    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+        <span id="current-progress">Tiempo de Caching restante</span>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+    </div>
+    <div style="height:100px" class="col-md-4">
+        <div><span id="time" class="badge badge-dark"></span></div>
+    </div>
+    <div class="col-md-4">
+    </div>
+</div>
+
+
+<div class="row">
+
+    <div class="col-md-6">
+        <div class="text-center">
+            <div class="mode">
+
+                @Html.ActionLink("Modo Oscuro", "ChangeMode", "Caching", new { mode = true, dark = ViewBag.DarkCalls, clear = ViewBag.ClearCalls }, new { @class = "btn btn-dark btn-md", @id = "ModoOscuro"})
+                <div id="hide">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="text-center">
+            <div class="mode">
+                @Html.ActionLink("Modo Claro", "ChangeMode", "Caching", new { mode = false, clear = ViewBag.ClearCalls, dark = ViewBag.DarkCalls }, new { @class = "btn btn-primary btn-md", @id = "ModoClaro" })
+                <div id="hide2">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

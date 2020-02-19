@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/generalClear.css" rel="stylesheet" />
+    <style>
+        .progress {
+            margin: 0px;
+            width: 100%;
+            height: 20px;
+        }
+
+        #current-progress {
+            padding-bottom: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div id="contenedor">
+        <div class="menu">
+            <ul class="sticky">
+
+                <li id="logoMain" class="active"></li>
+                <li class="activeTheme"><span class="titleBigTheme">Tutorial</span></li>
+                <li class="active"><span class="titleBig">Caching en MVC</span></li>
+
+            </ul>
+
+        </div>
+
+        <article>
+            <div class="ContentShop">
+                <div class="content">
+                    <!--CONTENT///////////////////////////////////////////////////////////////////////////////////////////////-->
+                    <!--CONTENT///////////////////////////////////////////////////////////////////////////////////////////////-->
+                    <!--CONTENT///////////////////////////////////////////////////////////////////////////////////////////////-->
+
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8">
+                            <div class="text-center">
+
+                                <div style="height:60px"></div>
+
+
+                                @RenderBody()
+
+                            </div>
+                        </div>
+                        <div class="col-md-2"></div>
+                    </div>
+                    <!--CONTENT///////////////////////////////////////////////////////////////////////////////////////////////-->
+                    <!--CONTENT///////////////////////////////////////////////////////////////////////////////////////////////-->
+                    <!--CONTENT///////////////////////////////////////////////////////////////////////////////////////////////-->
+                </div>
+
+            </div>
+        </article>
+        <footer>
+            <div>
+                <span class="footer">
+
+                    Petruse Uwaleke Mejías
+                    <a class="foot" href="mailto:petrus.uwaleke@tajamar365.com">petrus.uwaleke@tajamar365.com</a>
+                </span>
+            </div>
+        </footer>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+    <script type="text/javascript">
+
+        var i = 100;
+
+        var counterBack = setInterval(function () {
+
+            i -= 5;
+
+            if (i >= 0) {
+
+                $("#time").text((i / 5).toString() + " secs");
+                $('.progress-bar').css('width', i + '%');
+
+            } else {
+                clearInterval(counterBack);
+            }
+
+        }, 1000);
+
+    </script>
+
+</body>
+
+</html>
+
+
+
+
